@@ -37,13 +37,12 @@
 
 - 2.各学科目录下为若干项.rar文件
 - 3.需要解压.rar文件  可以用find命令解压
-	- find . -name '*.rar' | xargs unrar x
-[find命令及参数](http://man.linuxde.net/find)
-[更详细的介绍](https://www.cnblogs.com/jiangzhaowei/p/5451173.html)
 - 4.并不是所有的rar中全是PPT 需要删除不需要的文件
 - 5.删除其他文件
 	-  find . ! -name '\*.ppt\*' | xargs rm
 	- find . ! -name '\*.ppt\*' -delete
+[find命令及参数](http://man.linuxde.net/find)
+[更详细的介绍](https://www.cnblogs.com/jiangzhaowei/p/5451173.html)
 
 
 

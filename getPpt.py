@@ -32,38 +32,38 @@ class searchppt(object):
 	def get_subject(self):
 		self.nav = []
 		self.downloadLink = []
-		# try:
-		req = requests.get(self.baseurl)
-		html = req.content
-		soup = bs(html,'html.parser')
-		nav = soup.find_all('div', id = "navMenu")
-		nav_href = nav[0].find_all('a')
-		for item in nav_href:
-			href = item.get("href")
-			if href:
-				print href
-				url = '{}{}'.format(self.homeurl,href)
-				subject = url.split('#')[1]
-				self.nav.append({'url' : url,'subject':subject})
-		self.search_resource()
-		# except Exception as e:
-		# 	logger.error(e)
+		try:
+			req = requests.get(self.baseurl)
+			html = req.content
+			soup = bs(html,'html.parser')
+			nav = soup.find_all('div', id = "navMenu")
+			nav_href = nav[0].find_all('a')
+			for item in nav_href:
+				href = item.get("href")
+				if href:
+					print href
+					url = '{}{}'.format(self.homeurl,href)
+					subject = url.split('#')[1]
+					self.nav.append({'url' : url,'subject':subject})
+			self.search_resource()
+		except Exception as e:
+			logger.error(e)
 
 	def search_resource(self):
-		for folder in self.nav:
-			print '正在解析{}'.format(folder['url'])
-			if folder['subject'] not in os.listdir(self.path):
-				os.mkdir(self.path + folder['subject'])
+		for index in range(len(self.nav)):
+			print '正在解析{}'.format(self.nav[index]['url'])
+			if self.nav[index]['subject'] not in os.listdir(self.path):
+				os.mkdir(self.path + self.nav[index]['subject'])
 			try:
-				req = requests.get(folder['url'])
+				req = requests.get(self.nav[index]['url'])
 				html = req.content
 				soup = bs(html,'html.parser')
 				link = soup.find_all('dd', class_ = "ikejian_col_nav")
-				link_a = link[0].find_all('a')
+				link_a = link[index].find_all('a')
 				for href in link_a:
 					if href.get('href'):
 						link_url = '{}{}'.format(self.homeurl,href.get('href'))
-						self.get_all_href(link_url,folder['subject'])
+						self.get_all_href(link_url,self.nav[index]['subject'])
 			except Exception as e:
 				logger.error(e)
 	def get_all_href(self,url,subject):#解析两种类型的url 一种目录结构  一种列表模式
@@ -119,7 +119,7 @@ class searchppt(object):
 if __name__ == '__main__':
 	homeurl = 'http://www.1ppt.com'
 	baseurl = 'http://www.1ppt.com/kejian/'
-	path = './'
+	path = '/home/wang/nas/ocr/OCR_samples/downloadppt/'
 	a = searchppt(homeurl,baseurl,path)
 	a.get_subject()
 	

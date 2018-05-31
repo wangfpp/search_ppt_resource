@@ -25,15 +25,15 @@
 | 道德 |  daode |
 | 生活 |  shenghuo |
 | 社会 |  shehui |
-| 品德 |  yuwen |
-| 物理 |  yuwen |
-| 化学 |  yuwen |
-| 地理 |  yuwen |
-| 历史 |  yuwen |
-| 生物 |  yuwen |
-| 美术 |  yuwen |
-| 音乐 |  yuwen |
-| 幼儿 |  yuwen |
+| 品德 |  pinde |
+| 物理 |  wuli |
+| 化学 |  huaxue |
+| 地理 |  dili |
+| 历史 |  lishi |
+| 生物 |  shengwu |
+| 美术 |  meishu |
+| 音乐 |  yinyue |
+| 幼儿 |  youer |
 
 - 2.各学科目录下为若干项.rar文件
 - 3.需要解压.rar文件  可以用find命令解压
@@ -42,8 +42,8 @@
 [更详细的介绍](https://www.cnblogs.com/jiangzhaowei/p/5451173.html)
 - 4.并不是所有的rar中全是PPT 需要删除不需要的文件
 - 5.删除其他文件
-	- find . ! -name '*.ppt*' | xargs rm
-	- find . ! -name '*.ppt*' -delete
+	-  find . ! -name '\*.ppt\*' | xargs rm
+	- find . ! -name '\*.ppt\*' -delete
 
 
 

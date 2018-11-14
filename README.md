@@ -36,12 +36,15 @@
 | 幼儿 |  youer |
 
 - 2.各学科目录下为若干项.rar文件
-- 3.需要解压.rar文件  可以用find命令解压
-- 4.并不是所有的rar中全是PPT 需要删除不需要的文件
+- 3.需要解压.rar文件
+	- 3.1 可以用find命令查找所有的.rar压缩文件
+	- 3.2 用unrar工具来进行解压
+- 4.并不是所有的rar中全是PPT 需要删除不需要的文件 也可用find来删除
 - 5.删除其他文件
 	-  find . ! -name '\*.ppt\*' | xargs rm
 	- find . ! -name '\*.ppt\*' -delete
 [find命令及参数](http://man.linuxde.net/find)
+[unran命令参数](http://codingstandards.iteye.com/blog/792239)
 [更详细的介绍](https://www.cnblogs.com/jiangzhaowei/p/5451173.html)
 
 

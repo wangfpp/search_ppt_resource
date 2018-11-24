@@ -45,7 +45,7 @@
 	- find . ! -name '\*.ppt\*' -delete
 
 [find命令及参数](http://man.linuxde.net/find)
-[unran命令参数](http://codingstandards.iteye.com/blog/792239)
+[unrar命令参数](http://codingstandards.iteye.com/blog/792239)
 [更详细的介绍](https://www.cnblogs.com/jiangzhaowei/p/5451173.html)
 
 
